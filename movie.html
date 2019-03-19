@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>review</title>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		#NameAndReview{
+	margin-left: 200px;
+	width:70%;
+	float: left;
+	background-color: #c7ccd6;
+}
+
+.img{
+	padding-left: 350px;
+}
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<div>
+		
+			<header><i class='fas fa-user' style='font-size:24px;float: right;'></i>
+				
+<h4 id="email"style="float: right;padding-right: 20px;"></h4></header>
+
+			
+		
+		<div id="NameAndReview">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		var url = window.location.href;
+				 
+
+		var url = new URL(url);
+		//alert(name);
+		
+
+		var name = url.searchParams.get("name");
+		
+				
+		 
+		 var description = url.searchParams.get("description");
+
+		
+		 var email = url.searchParams.get("email");
+		 var image=url.searchParams.get("url");
+		// alert("email");
+		
+		 document.getElementById('NameAndReview').innerHTML = '<div id="name"><h3>' + name + '</h3><p>' + description + '</p>'+'<div>\
+			 	<img class="img"src="' + image+'"/>\
+			 </div></div>';
+		 document.getElementById('email').innerHTML = email;
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 
+
+	</script>
+</body>
+</html>

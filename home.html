@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<title>Home</title>
+
+<style type="text/css">
+
+.moviecard{
+	margin-top: 200px;
+	width: 200px;
+	height: 350px;
+	margin: 80px;
+
+	background-color: #33F6FF;
+	float: left;
+}
+.moviecard1{
+	margin-top: 200px;
+	width: 200px;
+	height: 350px;
+	margin: 80px;
+
+	background-color: #33F6FF;
+	float: left;
+}
+.img{
+	width:200px;
+	height:200px;
+	
+	float: left;
+
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<header><i class='fas fa-user' style='font-size:24px;float: right;'></i>
+<h4 id="demo"style="float: right;padding-right: 20px;"></h4></header>
+<div id="maindiv">
+		<form class="example"  style="margin:auto;max-width:300px">
+  <input type="text" onkeyup="searchMovie(this.value)"id="myInput"placeholder="Search.." title="Type movie name" id="search" name="search">
+  <button type="submit"onclick="searchMovie()"><i class="fa fa-search"></i></button>
+</form>
+
+
+
+
+		<div id="moviediv">
+
+
+
+
+		<!-- <div class="moviecard" id=" moviecard"><div><h3>movieObjectListArray[0]["name"]</h3></div><div><h5>movieObjectListArray[0]["rating"]</h5></div></div> -->
+		</div>
+	</div>
+
+
+
+
+<script type="text/javascript">
+var email = window.location.href;
+		var email = new URL(email);
+		var email= email.searchParams.get("email");
+		// alert(email);
+    document.getElementById('demo').innerHTML = email;
+    localStorage.setItem("movies",JSON.stringify([
+    	                                      {name:"nine",Actor:"Prithviraj",Actress:"Mamta Mohandas",year:2019,url:"images/nine.jpg",description:"9 (or Nine) is a 2019 Indian Malayalam-language science fiction horror thriller film[1] written and directed by Jenuse Mohamed. It was jointly produced by Prithviraj Productions and SPE Films India, and distributed by Sony Pictures Releasing. The film stars Prithviraj Sukumaran in the lead role, with Prakash Raj, Mamta Mohandas, Wamiqa Gabbi, and Master Alok in other important roles. The film marks the first regional Indian film production and distribution of Sony Pictures and the debut of Prithviraj Productions"},
+                                              {name:"Adam John",Actor:"Prithviraj",Actress:"Bhavana",year:2018,rating:9/10,url:"images/adam.jpg",description:"Adam Joan is a 2017 Indian Malayalam-language thriller film written and directed by Jinu V. Abraham, produced by Jairaj Motion Pictures and B Cinemas, distributed by Renji Panicker Entertainment. The film stars Prithviraj Sukumaran, Mishti, Bhavana, Narain, and Rahul Madhav. It was shot in Scotland and Kerala.[2][3] Adam John was released in India on 1 September 2017 and was a commercial success."},
+                                              {name:"Vijay Superum Pournamiyum",Actor:"Asif Ali",Actress:"Aiswarya Lekshmi",year:2019,rating:9.5/10,url:"images/vijay.jpg",description:"Vijay Superum Pournamiyum is a 2019 Indian Malayalam-language Romantic comedy film written and directed by Jis Joy, Starring Asif Ali and Aishwarya Lekshmi in the lead roles along with Balu Varghese, Siddique, Aju Varghese and Renji Panicker in supporting roles. It is the official remake of 2016 Telugu Hit film Pelli Choopulu. The film has musical score composed by debutant Prince George. It was released on 2019 January 11 to highly positive reviews from the critics as well as the audience"},
+                                              {name:"Varathan",Actor:"Fahad Fazil",Actress:"Aiswarya Lekshmi",year:2019,rating:8/10,url:"images/varathan.jpg",description:"Varathan (lit. Outsider) is a 2018 Indian Malayalam-language survival thriller film directed by Amal Neerad. It was jointly produced by Nazriya Nazim and Neerad through their productions houses Fahadh Faasil and Friends and Amal Neerad Productions. It was written by Suhas-Sharfu and stars Fahadh Faasil and Aishwarya Lekshmi. The film released on 20 September 2018 was a commercial success at the box office."},
+                                              {name:"Kumbalangi Nights",Actor:"Fahad Fazil",Actress:"Riya Saira",year:2019,rating:7/10,url:"images/kumbalangi.jpg",description:"Kumbalangi Nights is a 2019 Indian Malayalam-language comedy-drama film directed by Madhu C. Narayanan (in his directorial debut) and written by Syam Pushkaran. It is jointly produced by Fahadh Faasil, Nazriya Nazim, Dileesh Pothan, and Shyam Pushkaran under their production houses Fahadh Faasil and Friends and Working Class Hero. The film stars Shane Nigam, Soubin Shahir, Fahadh Faasil, Sreenath Bhasi, Anna Ben, and Mathew Thomas in the lead roles."},
+                                              {name:"Malarvadi Arts Club",Actor:"Nivin Pauly",Actress:"Malavika",year:2011,rating:7/10,url:"images/malarvadi.jpg",description:"Malarvaadi Arts Club is a 2010 Indian Malayalam-language coming of age musical comedy film directed by Vineeth Sreenivasan in his directorial debut, and produced by Dileep.[5] The film was released in 60 theaters across Kerala. The cast of five young boys and two girls were selected through a talent hunt. The movie was a commercial success and a box office hit"},
+                                              {name:"Action hero Biju",Actor:"Nivin Pauly",Actress:"Ann",year:2014,rating:9/10,url:"images/action.jpg",description:"Action Hero Biju is a 2016 Indian Malayalam-language comedy drama film directed, co-written and co-produced by Abrid Shine. The film chronicles the professional life of Biju Paulose (Nivin Pauly), a sub-inspector in Kochi City Police. Nivin jointly produced the film with Shine and Shibu Thekkumpuram. It was co-written by Muhammad Shafeeq and Shine. Jerry Amaldev composed the original songs, while Rajesh Murugesan composed score. Principal photography began in May 2015 and ended in October 2015"},
+                                              {name:"Premam",Actor:"Nivin Pauly",Actress:"Sai Pallavi",year:2016,rating:9/10,url:"images/premam.jpg",description:"Premam (English: Love) is a 2015 Indian Malayalam-language romantic comedy film written, edited, and directed by Alphonse Puthren. It is a three-part coming of age portrait of the lead finding his true love. Produced by Anwar Rasheed for Anwar Rasheed Entertainment, the film stars Nivin Pauly, Sai Pallavi, Madonna Sebastian and Anupama Parameswaran in the lead roles. The film features 17 debutant actors. Rajesh Murugesan composed the music."},
+                                              {name:"Njandukalude naatil oridavela",Actor:"Nivin Pauly",Actress:"Aiswarya Lekshmi",year:2016,rating:8/10,url:"images/njand.jpg",description:""},
+                                              {name:"Action hero Biju",Actor:"Nivin Pauly",Actress:"Ann",year:2014,rating:9/10,url:"images/action.jpg",description:"Action Hero Biju is a 2016 Indian Malayalam-language comedy drama film directed, co-written and co-produced by Abrid Shine. The film chronicles the professional life of Biju Paulose (Nivin Pauly), a sub-inspector in Kochi City Police. Nivin jointly produced the film with Shine and Shibu Thekkumpuram. It was co-written by Muhammad Shafeeq and Shine. Jerry Amaldev composed the original songs, while Rajesh Murugesan composed score. Principal photography began in May 2015 and ended in October 2015"
+                                     },
+                                              {name:"Banglore Days",Actor:"Fahad Fazil,Nivin Pauly,Dulquer Salman",Actress:"Nazriya,Nithya Menon",year:2014,rating:9/10,url:"images/banglore.jpg",description:"Bangalore Days is a 2014 Indian Malayalam-language coming of age romantic drama film written and directed by Anjali Menon,[2] and co-produced by Anwar Rasheed and Sophia Paul under the banner Anwar Rasheed Entertainments and Weekend Blockbusters. The film features an ensemble cast consisting of Nazriya Nazim, Nivin Pauly, Dulquer Salmaan, Fahadh Faasil, Parvathy, Isha Talwar and Nithya Menon.[3][4] The plot revolves around three cousins from Kerala who move to Bangalore,[5] continuing Menon's trend of films about family relationships."},
+                                              {name:"Om shanti Oshana ",Actor:"Nivin Pauly",Actress:"Nazriya Nazim",year:2015,rating:8/10,url:"images/om.jpg",description:"Ohm Shanthi Oshaana is a 2014 Indian Malayalam-language coming-of-age romantic comedy film co-written and directed by Jude Anthany Joseph. The story was conceived by Midhun Manuel Thomas and he wrote the screenplay along with the director. It stars Nazriya Nazim, Nivin Pauly, Renji Panicker, Aju Varghese, and Vineeth Sreenivasan. Ohm Shanthi Oshaana was produced by Ananya Films and features music by Shan Rahman"},
+                                              {name:"Oru Indian Pranaya Kadha",Actor:"Fahad Fazil",Actress:"Amala Paul",year:2014,rating:8/10,url:"images/indian.jpg",description:""}
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+
+
+]))
+    var moviesArray = JSON.parse(localStorage.getItem("movies"));
+		
+
+var divContent="";
+
+
+		
+		for(var i = 0 ; i< moviesArray.length; i++){
+
+			divContent = divContent +
+			'<div class="moviecard" onclick="review(' + i + ')" id="moviecard' + i + '"><div>\
+			 	<h3>' + moviesArray[i]["name"] + '</h3>\
+			 </div>\
+			 <div>\
+			 	<h5>'+moviesArray[i]["Actor"] + '</h5>\
+			 </div>'+
+			 '<div>\
+			 	<img class="img"src="' + moviesArray[i]["url"]+'"/>\
+			 </div>'+ 
+			 
+
+
+
+
+			 '</div>';
+		}
+		
+		document.getElementById('moviediv').innerHTML = divContent;
+
+		
+
+
+
+		
+function review(i){
+			var movieName = moviesArray[i]["name"];
+			var review = moviesArray[i]["description"];
+			var image=moviesArray[i]["url"];
+			
+			window.location.href = "movie.html?name="+movieName+"&description="+review+"&email="+email+"&url="+image;
+		}
+
+
+var divContent = "";
+			for(var i = 0 ; i< moviesArray.length; i++){
+
+			divContent = divContent +
+			'<div class="moviecard" onclick="review(' + i + ')" id="moviecard' + i + '"><div>\
+			 	<h3>' + moviesArray[i]["name"] + '</h3>\
+			 </div>\
+			 <div>\
+			 	<h5>'+moviesArray[i]["Actor"] + '</h5>\
+			 </div>'+
+			 '<div>\
+			 	<img class="img"src="' + moviesArray[i]["url"]+'"/>\
+			 </div>'+ 
+			 
+
+
+
+
+			 '</div>';
+			}
+			document.getElementById('listdiv').innerHTML = divContent;
+
+			
+			var SearchString = "";
+
+			function searchMovie(SearchString){
+
+
+				var divContent = "";
+				
+				// console.log(SearchString);
+				for (var i = 0; i < moviesArray.length; i++) {
+					var movie = moviesArray[i]["name"];
+					if (movie.search(SearchString) > -1) {
+
+						divContent = divContent + 
+						'<div class="moviecard" onclick="review(' + i + ')" id="moviecard' + i + '"><div>\
+			 	<h3>' + moviesArray[i]["name"] + '</h3>\
+			 </div>\
+			 <div>\
+			 	<h5>'+moviesArray[i]["Actor"] + '</h5>\
+			 </div>'+
+			 '<div>\
+			 	<img class="img"src="' + moviesArray[i]["url"]+'"/>\
+			 </div>'+ 
+			 
+
+
+
+
+			 '</div>';
+					}
+				}
+			
+					document.getElementById('listdiv').innerHTML = divContent;
+				}
+
+</script>
+
+
+
+
+</body>
+</html>
